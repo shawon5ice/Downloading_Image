@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        imageView = findViewById(R.id.imageView);
     }
 
     public void downloadImage(View view){
@@ -44,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
                 InputStream in = connection.getInputStream();
-                Bitmap bitmap = BitmapFactory.decodeStream(in);
-                return bitmap;
-
+                return BitmapFactory.decodeStream(in);
             }catch (Exception e){
                 e.printStackTrace();
                 return null;
